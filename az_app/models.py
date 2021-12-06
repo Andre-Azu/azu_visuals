@@ -9,3 +9,6 @@ class Image(models.Model):
     
 class Location(models.Model):
     location_area=models.CharField(max_length=30)
+
+class Category(models.Model):
+    category_name=models.CharField(max_length=30)
