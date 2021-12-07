@@ -37,10 +37,13 @@ class Image(models.Model):
 
     @classmethod
     def search_image(cls, category):
-        images = cls.objects.filter(category=category)
+        images = cls.objects.filter(category__name__icontains=category)
         return images
 
     @classmethod
     def filter_by_location(cls, location):
         images = cls.objects.filter(location=location)
         return images
+
+class Meta:
+    ordering = ['-post_time']

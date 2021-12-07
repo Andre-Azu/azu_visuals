@@ -1,0 +1,83 @@
+{%extends 'base.html'%}
+{% block content %}
+{{ block.super}}
+
+<div class="
+    container-fluid
+    text-center
+    landing
+    text-white
+    d-flex
+    flex-column
+    justify-content-center
+    align-center
+  ">
+  <h1>AZU VISUALS</h1>
+  <h6 class="my-4">
+    “When words become unclear, I shall focus with photographs.”
+  </h6>
+</div>
+
+<div class="container-fluid mt-5">
+  <div class="row">
+    {% for image in images %}
+    <div class="card col-xs-6 col-sm-6 col-md-6 col-lg-4 h-100" data-bs-toggle="modal" data-bs-target="#modal{{image.id}}">
+      <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+        <img src="{{image.image.url}}" class="img-fluid" />
+        <a href="#!">
+          <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+        </a>
+      </div>
+      <div class="card-body">
+        <div class="d-flex
+        justify-content-between
+        align-content-center ">
+          <h5 class="card-title">{{ image.image_name }}</h5>
+          <hr>
+          <!-- <p class="card-text">
+            Posted: {{image.post_time | timesince}} ago
+          </p> -->
+        </div>
+
+        <a href="#!" class="btn btn-primary">Button</a>
+      </div>
+    </div>
+
+    <!-- modal -->
+    <div class="modal fade" id="modal{{image.id}}" role="dialog"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="{{image.id}}Label" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="{{image.id}}Label">Photo Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            {{image.image_name}} {{image.image_description}} 
+            <img src="{{image.image.url}}" class="img-fluid" alt="">
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">
+                Copy Link
+              </button>
+            </div>
+          </div>
+          <div class="modal-footer d-flex align-items-center justify-content-end">
+            <button type="button" class="btn btn-danger" type="button" data-bs-dismiss="modal" aria-label="Close">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% empty %}
+    <div class="row">
+      <h2 class="text-center">Oops no photos here yet</h2>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %} 
