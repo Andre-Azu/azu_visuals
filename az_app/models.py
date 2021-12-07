@@ -17,10 +17,10 @@ class Category(models.Model):
 class Image(models.Model):
     image=models.ImageField(upload_to='pics_gallery/', default=None)
     image_name=models.CharField(max_length=30)
-    image_description=models.TextField()
-    location = models.ForeignKey(Location, on_delete=models.CASCADE,default=None)
+    image_description=models.TextField()    
     category=models.ManyToManyField(Category)  
-
+    location = models.ForeignKey(Location, on_delete=models.CASCADE,default=None)
+    
     def save_image(self):
         self.save()
 
