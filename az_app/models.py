@@ -45,5 +45,9 @@ class Image(models.Model):
         images = cls.objects.filter(location=location)
         return images
 
+    @classmethod
+    def view_by_category(cls, category):
+        images=cls.objects.filter
+
 class Meta:
     ordering = ['-post_time']

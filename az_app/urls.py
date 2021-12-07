@@ -9,6 +9,7 @@ from django.conf.urls import url
 urlpatterns = [
     url('^$', views.all_images,name='home'),
     url('category/',views.category_images ,name = 'category_results'),
+    path('category/<category>', views.views_images, name='view_category'),
 ]
 
 if settings.DEBUG:

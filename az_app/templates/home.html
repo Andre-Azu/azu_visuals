@@ -14,8 +14,19 @@
       <img src="{{image.image.url}}" class="img-responsive img-thumbnail" alt="Image">
       <h2><a class="text-center" href="{{ image.id }}" > {{ image.image_name }} </a></h2>
       <p>{{image.image_description}}</p>
-      
     </div>
+
+    <div class="text-center">
+      {%for category in image.category.all%}
+      <nav class="nav nav-pills">
+        <a href="#" class="nav-item nav-link active">{{category.image_name}}</a>
+      </nav>
+      {%endfor%}
+      <button type="submit" class="btn btn-primary">
+        Copy Link
+      </button>
+    </div>
+
 
   </div>
 
@@ -27,4 +38,7 @@
 
 </div>
  
-{% endblock %}  
+ 
+
+
+{% endblock %} 
