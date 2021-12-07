@@ -20,7 +20,7 @@ def category_images(request):
         message = "You haven't searched for any term"
         return render(request, 'category.html',{"message":message})
 
-def views_images(request, category):
+def view_category(request, category):
     categories= Image.objects.distinct().values_list('category__name', flat=True)
     images = Image.objects.filter(category__name=category)
     return render(request, 'category.html',{"category":category,"images": images,'categories':categories})
