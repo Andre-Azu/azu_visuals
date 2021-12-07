@@ -1,0 +1,37 @@
+.navbar {
+    background: transparent;
+    border-bottom: 2px solid rgba(225, 225, 225, 0.5);
+  }
+  
+  .landing {
+    height: 95vh;
+    background-color: rgba(0, 0, 128, 1);
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 128, 0.3),
+        rgba(255, 0, 150, 0.3)
+      ),
+      url("../../static/images/fakurian-design-tac7TY2ItGA-unsplash.jpg");
+    /* background-image: url('../../static/images/fakurian-design-tac7TY2ItGA-unsplash.jpg'); */
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  
+  .card{
+      border-radius: 4px;
+      background: #fff;
+      box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+      padding: 14px 80px 18px 36px;
+      cursor: pointer;
+  }
+  
+  .card:hover{
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  }
+  
+  .card h3{
+    font-weight: 600;
+  }
+  
