@@ -15,6 +15,8 @@ from decouple import config,Csv
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG', False)
+
+print("MODE FOUND WWWWWWWWWW"+MODE)
 # development
 if config('MODE')=="dev":
    DATABASES = {
@@ -39,27 +41,6 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
-
-MODE=config("MODE", default="dev")
-SECRET_KEY = config('SECRET_KEY')
-# development
-
-
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!h(1qwe$-ml2$jxftdftftewx5!x_lf5rf@idfr$p5=+=z82oqw8h8='
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Quick-start development settings - unsuitable for production
