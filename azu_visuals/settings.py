@@ -11,12 +11,15 @@ import os
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG', False)
 
-print("MODE FOUND WWWWWWWWWW"+MODE)
 # development
 if config('MODE')=="dev":
    DATABASES = {
@@ -56,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -89,6 +93,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'azu_visuals.wsgi.application'
 
+# adding cloudinary configurations
+cloudinary.config( 
+  cloud_name = "dzbduzkve", 
+  api_key = "536915881926997", 
+  api_secret = "eF5s_0IYd2ulZ68BL6vIJa8wFLg" 
+)
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
