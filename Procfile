@@ -1,1 +1,1 @@
-web: gunicorn azu_visual.wsgi --log-file -
+web: gunicorn azu_visuals.wsgi --log-file -
